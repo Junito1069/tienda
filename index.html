@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Safe Mobile Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>SAFE <span>MOBILE</span></h1>
+  <nav>
+    <button onclick="showCategory('all')">Inicio</button>
+    <button onclick="showCategory('celulares')">Celulares</button>
+    <button onclick="showCategory('accesorios')">Accesorios</button>
+    <button onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</button>
+  </nav>
+</header>
+
+<p class="promo">🔥 Envíos a toda RD • Garantía incluida • Compra segura</p>
+
+<section class="search">
+  <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProduct()">
+</section>
+
+<section id="products" class="products"></section>
+
+<!-- CARRITO -->
+<div id="cart" class="cart hidden">
+  <h2>🛒 Tu carrito</h2>
+  <div id="cart-items"></div>
+  <h3>Total: $<span id="total">0</span></h3>
+  <button class="buy" onclick="checkoutWhatsApp()">Comprar por WhatsApp</button>
+  <button class="close" onclick="toggleCart()">Cerrar</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
