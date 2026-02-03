@@ -17,19 +17,29 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 header h1 {
   font-weight: 900;
   letter-spacing: 2px;
+  font-size: 1.5rem;
 }
 
 header span {
   font-weight: 300;
+  font-size: 0.9rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
 }
 
 nav button {
   margin-left: 10px;
+  margin-top: 5px;
   padding: 8px 14px;
   border: none;
   cursor: pointer;
@@ -37,6 +47,7 @@ nav button {
   color: #FFD400;
   border-radius: 6px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 nav button:hover {
@@ -48,19 +59,21 @@ nav button:hover {
 .promo {
   text-align: center;
   background: #111;
-  padding: 10px;
+  padding: 12px 10px;
   color: #FFD400;
   font-weight: bold;
+  font-size: 0.95rem;
 }
 
 /* SEARCH */
 .search {
-  padding: 20px;
+  padding: 20px 10px;
   text-align: center;
 }
 
 .search input {
-  width: 60%;
+  width: 90%;
+  max-width: 500px;
   padding: 12px;
   border-radius: 8px;
   border: none;
@@ -70,9 +83,9 @@ nav button:hover {
 /* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
-  padding: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px 10px;
 }
 
 .product {
@@ -91,7 +104,7 @@ nav button:hover {
 
 .product img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: contain;
   background: #ffffff;
   padding: 10px;
@@ -100,10 +113,11 @@ nav button:hover {
 
 .product h3 {
   margin: 10px 0 5px;
+  font-size: 1rem;
 }
 
 .product p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #FFD400;
 }
@@ -117,6 +131,12 @@ nav button:hover {
   font-weight: bold;
   cursor: pointer;
   border-radius: 8px;
+  transition: 0.3s;
+}
+
+.product button:hover {
+  background: #FFC107;
+  color: #000;
 }
 
 /* CART */
@@ -125,24 +145,28 @@ nav button:hover {
   top: 0;
   right: 0;
   width: 320px;
+  max-width: 90%;
   height: 100%;
   background: #111;
   padding: 20px;
   box-shadow: -5px 0 15px #000;
   overflow-y: auto;
   z-index: 999;
+  transition: transform 0.3s ease;
 }
 
 .cart.hidden {
-  display: none;
+  transform: translateX(100%);
 }
 
 .cart h2 {
   color: #FFD400;
+  margin-bottom: 10px;
 }
 
 .cart p {
   font-size: 14px;
+  margin: 5px 0;
 }
 
 .cart button {
@@ -157,6 +181,12 @@ nav button:hover {
   font-weight: bold;
   margin-top: 10px;
   border-radius: 8px;
+  transition: 0.3s;
+}
+
+.buy:hover {
+  background: #FFC107;
+  color: #000;
 }
 
 .close {
@@ -168,3 +198,59 @@ nav button:hover {
   margin-top: 5px;
   border-radius: 8px;
 }
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .search input {
+    width: 95%;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px 5px;
+  }
+
+  .product img {
+    height: 150px;
+  }
+
+  .cart {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .promo {
+    font-size: 0.85rem;
+    padding: 8px 5px;
+  }
+
+  .product p {
+    font-size: 14px;
+  }
+
+  .product h3 {
+    font-size: 0.95rem;
+  }
+
+  nav button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
