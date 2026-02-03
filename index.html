@@ -2,36 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Safe Mobile Store</title>
+  <title>Safe Mobile | Store</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <h1>SAFE <span>MOBILE</span></h1>
-  <nav>
-    <button onclick="showCategory('all')">Inicio</button>
-    <button onclick="showCategory('celulares')">Celulares</button>
-    <button onclick="showCategory('accesorios')">Accesorios</button>
-    <button onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</button>
-  </nav>
+<header class="header">
+  <div class="logo">Safe<span>Mobile</span></div>
+
+  <input type="text" id="search" placeholder="Buscar productos...">
+
+  <button id="cartBtn" class="cart-btn">
+    🛒 <span id="cartCount">0</span>
+  </button>
 </header>
 
-<p class="promo">🔥 Envíos a toda RD • Garantía incluida • Compra segura</p>
-
-<section class="search">
-  <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProduct()">
+<section class="hero">
+  <h1>Tecnología segura para ti</h1>
+  <p>Celulares, accesorios y gaming</p>
 </section>
 
-<section id="products" class="products"></section>
+<main class="products" id="productList"></main>
 
 <!-- CARRITO -->
-<div id="cart" class="cart hidden">
-  <h2>🛒 Tu carrito</h2>
-  <div id="cart-items"></div>
-  <h3>Total: $<span id="total">0</span></h3>
-  <button class="buy" onclick="checkoutWhatsApp()">Comprar por WhatsApp</button>
-  <button class="close" onclick="toggleCart()">Cerrar</button>
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h3>Tu carrito</h3>
+    <button id="closeCart">✖</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+    <p>Total: <strong>RD$ <span id="total">0</span></strong></p>
+    <a id="whatsappBtn" target="_blank" class="whatsapp-btn">
+      Comprar por WhatsApp
+    </a>
+  </div>
 </div>
 
 <script src="script.js"></script>
